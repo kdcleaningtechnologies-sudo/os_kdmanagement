@@ -83,3 +83,4 @@ Demo password for all seeded portal users: `FacilityOS@2026`
 | Client (Harmony) | harmony.client@example.com |
 | Supervisor | supervisor@example.com |
 | Worker | worker@example.com |
+# os_kdmanagement
