@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>How FacilityOS works — KD Facilities Management Services</title>
+  <style>
+    :root { --ink: #14221f; --muted: #5b6b66; --line: #e6e0d4; --tide: #0f766e; --sand: #f7f3ea; }
+    * { box-sizing: border-box; }
+    body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); padding: 36px 40px; line-height: 1.45; max-width: 880px; margin: 0 auto; }
+    .toolbar { position: sticky; top: 0; background: white; padding: 10px 0 14px; display: flex; justify-content: flex-end; }
+    .masthead { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+    .masthead img { width: 72px; height: 54px; object-fit: contain; background: #fff; }
+    .brand { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--tide); font-weight: 700; }
+    .tag { color: var(--muted); font-size: 12px; margin: 4px 0 18px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    h2 { font-size: 16px; margin: 28px 0 8px; page-break-after: avoid; }
+    h3 { font-size: 13px; margin: 16px 0 6px; }
+    p, li { font-size: 13px; color: var(--ink); }
+    .muted { color: var(--muted); font-size: 12px; }
+    .hero { border: 1px solid var(--line); background: var(--sand); border-radius: 14px; padding: 16px 18px; margin: 18px 0 8px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+    .card { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+    .label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 12px; }
+    th, td { border: 1px solid var(--line); padding: 8px 9px; text-align: left; vertical-align: top; }
+    th { background: var(--sand); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+    ul { margin: 6px 0 10px 18px; padding: 0; }
+    .note { background: #ecfdf8; border: 1px solid #99f6e4; border-radius: 10px; padding: 10px 12px; font-size: 12px; }
+    .warn { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px; padding: 10px 12px; font-size: 12px; }
+    .steps { counter-reset: step; padding-left: 0; list-style: none; }
+    .steps li { counter-increment: step; margin: 8px 0; padding-left: 32px; position: relative; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--tide); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; }
+    footer { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 10px; }
+    button { font-family: system-ui, sans-serif; font-weight: 600; font-size: 13px; border: 0; background: #0f766e; color: white; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+    @media print {
+      .toolbar { display: none; }
+      body { padding: 0; max-width: none; }
+      h2 { break-after: avoid; }
+      table, .card, .hero, .note, .warn { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+  </div>
+  <div class="masthead">
+    <img src="kd-logo-light.png" alt="KD Facilities Management Services" />
+    <div>
+      <p class="brand" style="margin:0">KD Facilities Management Services</p>
+      <p class="tag" style="margin:4px 0 0">Cleaner Spaces | Safer Spaces | Better Living</p>
+    </div>
+  </div>
+  <h1>How FacilityOS works at your sites</h1>
+  <p class="muted">Client operations briefing · Send this PDF to the client after choosing Print → Save as PDF</p>
+
+  <div class="hero">
+    <p class="label">What this note is</p>
+    <p style="margin:6px 0 0;font-size:14px"><strong>A plain-language guide to the live system — not a future proposal.</strong></p>
+    <p class="muted" style="margin:8px 0 0">The client logs in to their portal and sees only their own contracted sites. KD can also generate the same monthly service PDF from Admin → Reports.</p>
+  </div>
+
+  <h2>1. What this platform is</h2>
+  <p>FacilityOS is the operations system for housekeeping, facility service, and security. It is not a generic HR tool. Every login is role-based:</p>
+  <div class="grid">
+    <div class="card"><div class="label">You (client)</div><p>See your sites, staff on duty, attendance, inspections, complaints, security, contracts, invoices, and monthly PDFs.</p></div>
+    <div class="card"><div class="label">Supervisor</div><p>Marks attendance, assigns tasks, inspects areas with photos, and handles site issues.</p></div>
+    <div class="card"><div class="label">Worker / guard</div><p>Checks in and out with GPS, completes assigned tasks, and (guards) verifies patrols and visitors.</p></div>
+    <div class="card"><div class="label">KD admin</div><p>Sets sites, roster, contracts, invoices, and generates the same monthly report you can print.</p></div>
+  </div>
+
+  <h2>2. How staff location is taken</h2>
+  <p>Location is captured automatically by the phone GPS when staff tap a button. They must allow location in the browser. <strong>We do not track anyone during the shift.</strong></p>
+  <table>
+    <thead>
+      <tr><th>When</th><th>What happens</th><th>What you see</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Worker / guard taps <strong>Check in</strong> or <strong>Check out</strong></td>
+        <td>Phone GPS is read once. The pin is compared to your site map pin and geofence (usually 200 metres, set per site).</td>
+        <td>Attendance shows <strong>Verified</strong> if they are inside the circle, or <strong>Unverified</strong> if they punched from farther away. The punch is still saved.</td>
+      </tr>
+      <tr>
+        <td>Supervisor marks present / late</td>
+        <td>Supervisor GPS is captured the same way and checked against the site pin.</td>
+        <td>Same verified / unverified flag on the attendance record.</td>
+      </tr>
+      <tr>
+        <td>Guard marks a patrol checkpoint <strong>Verified</strong></td>
+        <td>GPS is stored on that checkpoint. Skipped checks do not take GPS.</td>
+        <td>You can review security activity for your sites. You do not get a live moving map of the guard.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note"><strong>What this is not.</strong> There is no continuous tracking, no WhatsApp location share, and no live staff tracker on your portal. You see the contracted site map and whether today’s punches were geofence-verified.</p>
+
+  <h2>3. How daily work actually runs</h2>
+  <h3>Attendance</h3>
+  <ul>
+    <li>Each person has a site and (usually) a shift on the roster.</li>
+    <li>Late is measured from that shift start plus grace — not a fixed 9:30.</li>
+    <li>Your Attendance page shows today’s on-site count, how many punches were GPS-verified, and a 30-day chart.</li>
+  </ul>
+  <h3>Tasks and checklists</h3>
+  <ul>
+    <li>Supervisors and KD assign work (daily / weekly / one-off) with a checklist.</li>
+    <li>Workers tick their own tasks. Recurring work clones the next occurrence when completed.</li>
+    <li>Your Overview shows this month’s task completion %.</li>
+  </ul>
+  <h3>Inspections and photos</h3>
+  <ul>
+    <li>Supervisor scores areas (cleanliness, washroom, floor, pantry, waste), adds photos, and can run <strong>Analyze photos</strong>.</li>
+    <li>AI returns a labelled suggestion: floor pass/fail, dust, bins, supplies, issues, recommended actions, and a suggested score.</li>
+    <li>The supervisor must apply or edit the score. The final mark is theirs. AI never auto-publishes a score.</li>
+    <li>You see the report, photos, and the AI suggestion clearly marked as AI-generated.</li>
+  </ul>
+  <h3>Complaints</h3>
+  <ul>
+    <li>You (or KD / supervisor) raise a ticket with category, priority, and photos.</li>
+    <li>Workflow: open → assigned → in progress → resolved → <strong>you confirm</strong> → closed.</li>
+  </ul>
+  <h3>Security</h3>
+  <ul>
+    <li>Guards check in like other staff, walk checkpoints, log incidents with photos, and sign visitors in/out.</li>
+    <li>Your Security page is read-only: incidents and recent visitors at your sites.</li>
+  </ul>
+
+  <h2>4. Documents and records you receive</h2>
+  <p>Nothing is emailed or sent on WhatsApp yet. You open the client portal. KD can also generate the same monthly PDF for you.</p>
+  <table>
+    <thead>
+      <tr><th>Document / record</th><th>Where</th><th>What it contains</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Monthly service report (PDF)</strong></td>
+        <td>Reports → Generate this month → Print / Save PDF</td>
+        <td>Workers deployed, attendance %, tasks done / pending, complaints resolved, average inspection score, SLA %, contract SLA text, up to 8 inspection photos. One sheet per site plus an all-sites roll-up.</td>
+      </tr>
+      <tr>
+        <td><strong>Contract</strong></td>
+        <td>Contracts</td>
+        <td>Site, services, manpower, monthly value, dates, renewal, SLA terms, status.</td>
+      </tr>
+      <tr>
+        <td><strong>Invoice</strong></td>
+        <td>Invoices</td>
+        <td>Invoice number, tax, due date, total, status. Online payment collection is not live yet.</td>
+      </tr>
+      <tr>
+        <td><strong>Inspection pack</strong></td>
+        <td>Inspections + Overview photos</td>
+        <td>Area scores, supervisor final mark, AI suggestion, site photos from the visit.</td>
+      </tr>
+      <tr>
+        <td><strong>Attendance summary</strong></td>
+        <td>Attendance</td>
+        <td>Today on site, verified punches, last 30 days.</td>
+      </tr>
+      <tr>
+        <td><strong>Staff list</strong></td>
+        <td>Staff</td>
+        <td>Names, role, and site of people deployed to you.</td>
+      </tr>
+      <tr>
+        <td><strong>Complaint file</strong></td>
+        <td>Complaints</td>
+        <td>Tickets, photos, comments, and status — including your confirmation step.</td>
+      </tr>
+      <tr>
+        <td><strong>Security log</strong></td>
+        <td>Security</td>
+        <td>Incidents and visitor in/out for your sites.</td>
+      </tr>
+      <tr>
+        <td><strong>Site location sheet</strong></td>
+        <td>Locations</td>
+        <td>Address, services, shift timings, and the map pin used for staff geofencing.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="warn"><strong>Not shared with you.</strong> Employee personal files (ID proofs stored on the staff record), payroll, inventory, and machine-asset registers stay with KD. Raw staff GPS coordinates are not shown as a live map on your portal.</p>
+
+  <h2>5. How to print the monthly PDF</h2>
+  <ol class="steps">
+    <li>Sign in to the client portal.</li>
+    <li>Open <strong>Reports</strong>.</li>
+    <li>Tap <strong>Generate this month</strong> (KD can do this for you from Admin → Reports).</li>
+    <li>On each site card, tap <strong>Print / Save PDF</strong> and choose “Save as PDF” in the browser dialog.</li>
+  </ol>
+  <p class="muted">Allow pop-ups once. Use the same print dialog on this page to save this briefing as a PDF to email the client.</p>
+
+  <h2>6. How SLA is calculated</h2>
+  <p>SLA % is the average of two simple ratios for the period:</p>
+  <ul>
+    <li>Share of inspections scoring <strong>80 or above</strong> (supervisor’s final score).</li>
+    <li>Share of complaints that reached <strong>resolved</strong> (or later).</li>
+  </ul>
+  <p>If one of those has no data, the other one is used. Contract SLA wording from your contract is printed on the monthly PDF when it is on file.</p>
+
+  <footer>
+    <p class="muted">KD Facilities Management Services · FacilityOS client briefing</p>
+    <p class="muted">This document describes the live product. Payments remain “Coming soon”. Training modules are not part of this release.</p>
+  </footer>
+</body>
+</html>

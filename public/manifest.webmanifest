@@ -1,0 +1,26 @@
+{
+  "name": "KD FacilityOS",
+  "short_name": "FacilityOS",
+  "description": "Check-in, tasks, inspections, and site operations for KD Facilities Management Services.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f1eb",
+  "theme_color": "#072422",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

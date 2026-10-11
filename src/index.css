@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --color-ink-950: #072422;
+  --color-ink-900: #0b322f;
+  --color-ink-800: #124440;
+  --color-ink-700: #1a5853;
+  --color-ink-600: #2a6f69;
+  --color-ink-500: #3d8a83;
+  --color-ink-100: #d7eeeb;
+  --color-ink-50: #eef7f6;
+
+  --color-tide-600: #0f8a7a;
+  --color-tide-500: #14b8a6;
+  --color-tide-400: #2dd4bf;
+  --color-tide-100: #ccfbf1;
+  --color-tide-50: #f0fdfa;
+
+  --color-sand-50: #f6f4ef;
+  --color-sand-100: #ece7dc;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  min-height: 100svh;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink-900);
+  background: #f3f1eb;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: #99f6e4;
+  color: #042f2e;
+}
