@@ -84,3 +84,4 @@ Demo password for all seeded portal users: `FacilityOS@2026`
 | Supervisor | supervisor@example.com |
 | Worker | worker@example.com |
 # os_kdmanagement
+# os_kdmanagement
