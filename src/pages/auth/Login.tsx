@@ -7,6 +7,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { hasSoftwareAccess, PORTAL_HOME } from '../../lib/auth/roles'
 import { clearLoginFailures, loginLockMessage, recordLoginFailure } from '../../lib/auth/lockout'
 import { isSupabaseConfigured } from '../../lib/supabaseClient'
+import { InstallAppCard } from '../../components/InstallAppBanner'
 import { Logo } from '../../components/brand/Logo'
 import { Button } from '../../components/ui/Button'
 import { Input } from '../../components/ui/Input'
@@ -75,8 +76,9 @@ export function LoginPage() {
           </div>
           <h2 className="text-2xl font-semibold text-ink-950">Sign in</h2>
           <p className="mt-1 text-sm text-ink-600">
-            Workers, supervisors, and guards: add this to your phone home screen, then sign in. Same login as the website.
+            Workers, supervisors, and guards: tap Install App on your phone, then sign in. Same login as the website.
           </p>
+          <InstallAppCard className="mt-5 lg:hidden" />
 
           {!isSupabaseConfigured ? (
             <p className="mt-6 rounded-xl bg-amber-50 px-3 py-3 text-sm text-amber-900">

@@ -8,6 +8,7 @@ import { hasSoftwareAccess, PORTAL_HOME, ROLE_LABELS } from '../../lib/auth/role
 import { recordSignupAttempt, signupLockMessage } from '../../lib/auth/lockout'
 import { isSupabaseConfigured } from '../../lib/supabaseClient'
 import { SIGNUP_ROLES } from '../../types/database'
+import { InstallAppCard } from '../../components/InstallAppBanner'
 import { Logo } from '../../components/brand/Logo'
 import { Button } from '../../components/ui/Button'
 import { Input, Select } from '../../components/ui/Input'
@@ -80,6 +81,7 @@ export function SignupPage() {
         <p className="mt-1 text-sm text-ink-600">
           Create an account. An administrator must approve it before you can use FacilityOS.
         </p>
+        <InstallAppCard className="mt-5" />
 
         {!isSupabaseConfigured ? (
           <p className="mt-6 rounded-xl bg-amber-50 px-3 py-3 text-sm text-amber-900">
